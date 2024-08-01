@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function Register() {
+  // State variables to manage form data, success, and error messages
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  // Function to validate form data
   const validateForm = () => {
     if (!name.trim()) {
       return "Name is required.";
@@ -24,6 +26,7 @@ function Register() {
     return '';
   };
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,13 +37,11 @@ function Register() {
       return;
     }
 
-    const formData = { "name":name, "age":age,"email": email };
+    const formData = { name, age, email };
 
     try {
       const response = await axios.post('https://test-backend-2joc.onrender.com/api/register', formData);
-
-      console.log(formData["age"])
-      console.log(response)
+      console.log(response);
       setSuccess('Registration successful!');
       setError('');
       // Clear form fields after success
@@ -49,13 +50,13 @@ function Register() {
       setEmail('');
     } catch (err) {
       setError('Registration failed. Please try again.');
-      console.log(err)
+      console.log(err);
       setSuccess('');
     }
   };
 
   return (
-    <div className="min-h-screen  p-8 flex items-start justify-start">
+    <div className="min-h-screen p-8 flex items-start justify-start">
       <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mt-20 ml-20">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">Register</h2>
         {success && (

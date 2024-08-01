@@ -7,6 +7,7 @@ import './App.css';
 
 function App() {
   return (
+    //Routes for navigation...
     <Router>
       <Navbar />
       <div className="min-h-screen bg-cover bg-center background">

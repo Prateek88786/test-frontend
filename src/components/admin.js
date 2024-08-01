@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Admin() {
+  // State variable to manage user data
   const [userData, setUserData] = useState([]);
 
+  // Fetch user data when the component mounts
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get('https://test-backend-2joc.onrender.com/api/users');
-        console.log(response.data)
+        console.log(response.data);
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
