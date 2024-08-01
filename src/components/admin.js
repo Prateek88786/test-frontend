@@ -7,7 +7,7 @@ function Admin() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('https://github.com/Prateek88786/test-frontend.git/api/users');
+        const response = await axios.get('https://test-backend-2joc.onrender.com/api/users');
         console.log(response.data)
         setUserData(response.data);
       } catch (error) {
