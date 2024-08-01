@@ -37,7 +37,7 @@ function Register() {
     const formData = { "name":name, "age":age,"email": email };
 
     try {
-      const response = await axios.post('https://test-backend-2joc.onrender.com/api/register', formData);
+      const response = await axios.post('c/api/register', formData);
 
       console.log(formData["age"])
       console.log(response)
